@@ -1,0 +1,33 @@
+<h3 class="courses" >The List Of Albums</h3>
+<h3 style="margin-top: 10px">
+
+
+  <select class="selectinput" [(ngModel)]="AlbumSelected" (ngModelChange)="onAlbumSelected($event)">
+    <option *ngFor="let album of Album_list" [value]="album.id">
+      {{album.title}}
+    </option>
+  </select>
+</h3>
+
+<br>   <br>
+<h3 *ngIf="isExist" style="margin-left: 350px;color: orangered"> The Selected Album ID is : <b>{{AlbumSelected}}</b></h3>
+
+
+<h3  *ngIf="isExist" class="courses" >The Photos Of {{AlbumSelected}}th Album </h3>
+
+<table *ngIf="isExist">
+  <tr>
+    <th>ID</th>
+    <th>ALBUM</th>
+    <th>Title</th>
+    <th>Thumbnail</th>
+
+  </tr>
+  <tr *ngFor="let item of Photos_list">
+    <td class="A" >{{item.id}}</td>
+    <td class="A" >{{item.albumId}}</td>
+    <td class="A" >{{item.title}}</td>
+    <td class="A"> <img src="{{item.thumbnailUrl}}"></td>
+
+  </tr>
+</table>

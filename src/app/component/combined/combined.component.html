@@ -1,0 +1,101 @@
+
+<button style="margin-left: 45px;margin-bottom:20px;background-color: yellow" (click)="CHK()">CHCK COVID</button>
+<h1 class="mainheadings"> Get Request (https://api.covid19api.com/summary)</h1>
+
+
+
+
+<table>
+  <tr>
+    <th>COUNTRY</th>
+    <th>CASES</th>
+    <th>NewDeaths</th>
+    <th>TotalRecovered</th>
+    <th>TotalDeaths</th>
+
+  </tr>
+  <tr *ngFor="let item of Covid_data">
+    <th class="A" >{{item.Country}}</th>
+    <th class="A" >{{item.TotalConfirmed}}</th>
+    <th class="A" >{{item.NewDeaths}}</th>
+    <th class="A" >{{item.TotalRecovered}}</th>
+    <th class="A" >{{item.TotalDeaths}}</th>
+
+
+
+  </tr>
+</table>
+
+<h1 class="mainheadings">GET DATA </h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>USER ID</th>
+    <th>Title</th>
+    <th>Body</th>
+
+  </tr>
+  <tr *ngFor="let item of get_comments">
+    <th class="A"  >{{item.id}}</th>
+    <th class="A" >{{item.userId}}</th>
+    <th class="A" >{{item.title}}</th>
+    <th class="A" >{{item.body}}</th>
+
+  </tr>
+</table>
+
+<h1 class="mainheadings">GET BY PARAMTERS</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>USER ID</th>
+    <th>Title</th>
+    <th>Body</th>
+
+  </tr>
+  <tr *ngFor="let item of get_comments_parameter">
+    <th class="A" >{{item.id}}</th>
+    <th class="A" >{{item.userId}}</th>
+    <th class="A" >{{item.title}}</th>
+    <th class="A">{{item.body}}</th>
+
+  </tr>
+</table>
+
+
+<h1 class="mainheadings">POST DATA</h1>
+
+<p> id: {{objPost?.userId}}</p>
+<p> id: {{objPost?.title}}</p>
+<p> id: {{objPost?.body}}</p>
+<p> id: {{objPost?.id}}</p>
+
+<h1 class="mainheadings"> DELETE DATA </h1>
+
+<button style="background-color: orangered" (click)="showdelete()">DELETE API CALL</button>
+
+
+<h1 class="mainheadings"> COVID DATA GET AND STORE IN MAT TABLE</h1>
+
+<table mat-table [dataSource]="matData" class="mat-elevation-z8">
+  <ng-container matColumnDef="Country">
+    <th mat-header-cell *matHeaderCellDef> Country</th>
+    <td mat-cell *matCellDef="let element"> {{element.Country}}</td>
+
+  </ng-container>
+  <ng-container matColumnDef="TotalConfirmed">
+    <th mat-header-cell *matHeaderCellDef> TotalConfirmed</th>
+    <td mat-cell style="color: green" *matCellDef="let element">{{element.TotalConfirmed}} </td>
+  </ng-container>
+  <ng-container matColumnDef="NewDeaths">
+    <th mat-header-cell *matHeaderCellDef> NewsDeaths</th>
+    <td mat-cell style="color: green" *matCellDef="let element">{{element.NewDeaths}} </td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+

@@ -1,0 +1,43 @@
+/*table,th,td {*/
+/*  border: 1px solid black;*/
+/*}*/
+
+/*table {*/
+/*  border-collapse:  collapse;*/
+/*  width: 90%;*/
+/*}*/
+th{
+  height: 40px;
+  color: red;
+
+}
+
+.A{
+  color: black;
+}
+
+.headings{
+  font-weight: bold;
+}
+table {
+  min-width: 80% !important;
+  /*align-content: center;*/
+  margin:auto;
+}
+.courses {
+  margin-top: 30px;
+  margin-left: 350px;
+
+  padding: 0;
+  width: 25em;
+  color: maroon;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.selectinput{
+  margin-left: 10em;
+}
+.mainheadings{
+  color: blue;
+}

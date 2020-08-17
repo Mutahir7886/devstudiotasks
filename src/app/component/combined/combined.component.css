@@ -20,7 +20,8 @@ th{
   font-weight: bold;
 }
 table {
-  min-width: 100% !important;
+  min-width: 60% !important;
+  margin: auto;
 }
 
 .mainheadings{

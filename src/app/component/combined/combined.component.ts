@@ -1,21 +1,20 @@
 import {Component} from '@angular/core';
-import {COVID} from "./shared/covid-data";
-import {freeApiService} from "./services/apiservice";
-import {Covidd} from "./shared/classes/covid_interface";
-import {Posts} from "./shared/classes/post_data";
+import {freeApiService} from "../../services/apiservice"
+import {Covidd} from "../../shared/classes/covid_interface";
+import {Posts} from "../../shared/classes/post_data";
 import {MatTableDataSource} from '@angular/material/table';
 import {ToastrService} from 'ngx-toastr';
-import {HttpService} from "./services/http.service";
-import {apiUrls} from "../environments/apis/api.urls";
+import {HttpService} from "../../services/http.service";
+import {apiUrls} from "../../../environments/apis/api.urls";
 
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-combined',
+  templateUrl: './combined.component.html',
+  styleUrls: ['./combined.component.css']
 })
-export class AppComponent {
-  title = 'apitask';
+export class CombinedComponent {
+
   Covid_data: Covidd[];
   get_comments: Posts[];
   get_comments_parameter: Posts[];
@@ -48,6 +47,10 @@ export class AppComponent {
       this.get_comments_parameter = data;
     })
 
+    // this.httpService.getWithParams(apiUrls.Comments_summary_user1,"1").subscribe(data => {
+    //   this.get_comments_parameter = data;
+    // })
+
 
     var opost = new Posts()
     opost.body = "TestBody";
@@ -66,7 +69,7 @@ export class AppComponent {
 
   showdelete()
   {
-    this.httpService.delete(apiUrls.deleteInfo+'1').subscribe(data => {
+    this.httpService.delete(apiUrls.deleteInfo).subscribe(data => {
         this.message = "THe resource has been deleted";
         this.toastr.success(this.message);
       }
